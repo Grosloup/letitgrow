@@ -1,20 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2">
-          <score></score>
-          <button @click="replay">replay</button>
-        </div>
-        <div class="col-md-8">
-
-          <question v-for='question in questions' :question='question' :key='question.text'></question>
-
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-
+    <question v-for='question in questions' :question='question' :key='question.text'></question>
   </div>
 </template>
 
@@ -32,7 +18,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      reinitialize: 'reinitializeAllAction'
+      reinitialize: 'reinitializeAllAction',
+      initMaxScores: 'initMaxScoresAction'
     }),
     replay () {
       this.reinitialize()
@@ -41,7 +28,12 @@ export default {
   components: {
     Score,
     Question
+  },
+  mounted () {
+    this.initMaxScores()
   }
 }
 </script>
-
+<style>
+  $blue: #609cff;
+</style>
