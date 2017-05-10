@@ -23,7 +23,7 @@
 
     <div v-if="hasWin===true">Gagné</div>
     <div v-if="hasWin===false">Perdu</div>
-    <div v-if="hasWin!==null"><button @click.prevent="showExplains" class="question__btn"><span v-if="explainShown">Cacher</span><span v-else>Voir</span> les explications</button></div>
+    <div v-if="hasWin!==null"><button @click.prevent="showExplains" class="question__btn"><span v-if="explainShown">Cacher</span><span v-else>Voir</span> les réponses</button></div>
   </div>
 
 </template>
@@ -97,6 +97,8 @@
       },
       showExplains () {
         this.explainShown = !this.explainShown
+
+        this.question.choices.forEach(function(choice))
       }
     }
   }
