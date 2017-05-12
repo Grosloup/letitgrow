@@ -18,12 +18,13 @@
 
     <div class="question__" v-show="question.isStarted">
         <button @click.prevent="replay" class="question__btn">Rejouez</button>
-        <button @click.prevent="terminate" class="question__btn">Vérifiez vos choix</button>
+        <button @click.prevent="terminate" class="question__btn">Vérifiez vos réponses</button>
     </div>
+
+    <div v-if="hasWin!==null"><button @click.prevent="showExplains" class="question__btn"><span v-if="explainShown">Cacher</span><span v-else>Voir</span> les réponses</button></div>
 
     <div v-if="hasWin===true">Gagné</div>
     <div v-if="hasWin===false">Perdu</div>
-    <div v-if="hasWin!==null"><button @click.prevent="showExplains" class="question__btn"><span v-if="explainShown">Cacher</span><span v-else>Voir</span> les réponses</button></div>
   </div>
 
 </template>
@@ -98,7 +99,8 @@
       showExplains () {
         this.explainShown = !this.explainShown
 
-        this.question.choices.forEach(function(choice))
+        this.question.choices.forEach(function (choice) {
+        })
       }
     }
   }
